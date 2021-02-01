@@ -241,7 +241,14 @@ func corsValidator() OriginValidator {
 	// SatoshiLabs development servers
 	develRegex := regexp.MustCompile(`^https://([[:alnum:]\-_]+\.)*sldev\.cz$`)
 
+	// one key development servers
+	onekeyRegex := regexp.MustCompile(`^https://([[:alnum:]\-_]+\.)*onekey\.so$`)
+
 	v := func(origin string) bool {
+		if onekeyRegex.MatchString(origin) {
+			return true
+		}
+
 		if trezorRegex.MatchString(origin) {
 			return true
 		}
