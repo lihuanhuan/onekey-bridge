@@ -10,6 +10,7 @@ RUN dnf update -y
 
 RUN dnf install -y ruby-devel rubygems rpm-build
 RUN dnf install -y autoconf automake libtool make
+RUN dnf install -y git
 RUN gem install fpm --no-document
 
 # install package signing tools
